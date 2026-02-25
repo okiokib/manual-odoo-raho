@@ -1,0 +1,26 @@
+{
+  "Admin": [
+    {
+      "title": "Alur Dropping Petty Cash",
+      "file": "admin/alur-dropping-petty-cash.pdf"
+    },
+    {
+      "title": "Setup User",
+      "file": "admin/setup-user.pdf"
+    }
+  ],
+
+  "Accounting": [
+    {
+      "title": "Jurnal Kas",
+      "file": "accounting/jurnal-kas.pdf"
+    }
+  ],
+
+  "Inventory": [
+    {
+      "title": "Stok Masuk",
+      "file": "inventory/stok-masuk.pdf"
+    }
+  ]
+}
