@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manual Book Odoo RAHO</title>
 
 <style>
@@ -11,12 +12,14 @@ body{
     margin:0;
 }
 
+/* HEADER */
 .header{
     background:#2f3640;
     color:white;
     padding:20px;
 }
 
+/* CONTENT */
 .container{
     padding:30px;
 }
@@ -29,19 +32,26 @@ body{
     box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
-a{
+.card h2{
+    margin-top:0;
+}
+
+/* LINK */
+a.guide{
     display:block;
-    padding:8px;
+    padding:10px;
+    margin-bottom:5px;
     cursor:pointer;
     color:#0984e3;
+    text-decoration:none;
+    border-radius:6px;
 }
 
-a:hover{
+a.guide:hover{
     background:#f1f2f6;
-    border-radius:5px;
 }
 
-/* Modal */
+/* MODAL */
 .modal{
     display:none;
     position:fixed;
@@ -55,7 +65,7 @@ a:hover{
 
 .modal-content{
     background:white;
-    width:85%;
+    width:90%;
     height:90%;
     margin:2% auto;
     border-radius:10px;
@@ -63,18 +73,34 @@ a:hover{
     position:relative;
 }
 
+/* CLOSE BUTTON */
 .close{
     position:absolute;
     right:15px;
     top:10px;
-    font-size:28px;
+    font-size:26px;
     cursor:pointer;
+    background:white;
+    border-radius:50%;
+    padding:5px 10px;
 }
 
+/* PDF */
 iframe{
     width:100%;
     height:100%;
     border:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.container{
+    padding:15px;
+}
+.modal-content{
+    width:95%;
+    height:95%;
+}
 }
 </style>
 </head>
@@ -83,19 +109,24 @@ iframe{
 
 <div class="header">
 <h1>Manual Book Odoo RAHO</h1>
-<p>Dokumentasi Sistem</p>
+<p>Dokumentasi Sistem Internal</p>
 </div>
 
 <div class="container">
 
+<!-- ADMIN -->
 <div class="card">
 <h2>Admin</h2>
 
-<a onclick="openPDF('admin/alur-dropping-petty-cash.pdf')">
+<a class="guide"
+href="admin/alur-dropping-petty-cash.pdf"
+onclick="return openPDF(event,'admin/alur-dropping-petty-cash.pdf')">
 Alur Dropping Petty Cash
 </a>
 
-<a onclick="openPDF('admin/setup-user.pdf')">
+<a class="guide"
+href="admin/setup-user.pdf"
+onclick="return openPDF(event,'admin/setup-user.pdf')">
 Setup User
 </a>
 
@@ -104,7 +135,7 @@ Setup User
 </div>
 
 
-<!-- MODAL -->
+<!-- MODAL PDF -->
 <div id="pdfModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closePDF()">✖</span>
@@ -114,23 +145,28 @@ Setup User
 
 
 <script>
-function openPDF(file){
 
-    if (window.innerWidth < 768){
-        // Mobile → buka tab baru
-        window.open(file, "_blank");
-        return;
+function openPDF(e,file){
+
+    /* MOBILE → buka tab baru */
+    if(window.innerWidth < 768){
+        return true;
     }
 
-    // Desktop → popup
+    /* DESKTOP → popup */
+    e.preventDefault();
+
     document.getElementById("pdfModal").style.display="block";
     document.getElementById("pdfFrame").src=file;
+
+    return false;
 }
 
 function closePDF(){
     document.getElementById("pdfModal").style.display="none";
     document.getElementById("pdfFrame").src="";
 }
+
 </script>
 
 </body>
