@@ -1,4 +1,9 @@
 # Manual Book Odoo RAHO
 
+Dokumentasi penggunaan sistem Odoo untuk seluruh divisi.
+
+---
+
 ## Admin
-- [Alur Droping Petty Cash & Cara Penggunaan](admin-petty-cash.html)
+
+- [Alur Dropping Petty Cash & Cara Penggunaan](admin/petty.html)
