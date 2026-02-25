@@ -115,6 +115,14 @@ Setup User
 
 <script>
 function openPDF(file){
+
+    if (window.innerWidth < 768){
+        // Mobile → buka tab baru
+        window.open(file, "_blank");
+        return;
+    }
+
+    // Desktop → popup
     document.getElementById("pdfModal").style.display="block";
     document.getElementById("pdfFrame").src=file;
 }
